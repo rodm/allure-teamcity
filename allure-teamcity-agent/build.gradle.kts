@@ -35,7 +35,6 @@ dependencies {
     implementation("org.apache.httpcomponents.client5:httpclient5")
 
     provided("com.intellij:openapi")
-    provided("org.jetbrains.teamcity:agent-api")
     provided("org.jetbrains.teamcity.internal:agent")
 
 }

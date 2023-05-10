@@ -41,14 +41,7 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-allprojects {
-    tasks.withType<JavaCompile>().configureEach {
-        options.encoding = "UTF-8"
-    }
-}
-
 description = "Allure Teamcity"
-version = version
 group = "io.qameta.allure"
 
 configurations.all {
@@ -65,8 +58,6 @@ allprojects {
     }
 }
 
-apply(plugin = "net.researchgate.release")
-
 configure<ReleaseExtension> {
     tagTemplate.set("$version")
 }
@@ -77,8 +68,6 @@ tasks.afterReleaseBuild {
 
 
 configure(subprojects) {
-
-    version = version
 
     apply(plugin = "java")
     apply(plugin = "maven-publish")
@@ -205,11 +194,5 @@ configure(subprojects) {
 
     tasks.withType<GenerateModuleMetadata>().configureEach {
         enabled = false
-    }
-
-    repositories {
-        mavenLocal()
-        jcenter()
-        maven("https://download.jetbrains.com/teamcity-repository")
     }
 }

@@ -13,8 +13,4 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     compileOnly("org.projectlombok:lombok")
     implementation("com.fasterxml.jackson.core:jackson-databind")
-
-    provided("org.jetbrains.teamcity:common-api")
 }
-
-

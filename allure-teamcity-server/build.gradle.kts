@@ -71,5 +71,4 @@ dependencies {
     provided("org.jetbrains.teamcity.internal:server")
 
     provided(files("$teamcityFullDir/webapps/ROOT/WEB-INF/lib/server-tools.jar"))
-    provided(files("$teamcityFullDir/webapps/ROOT/WEB-INF/lib/common-tools.jar"))
 }
