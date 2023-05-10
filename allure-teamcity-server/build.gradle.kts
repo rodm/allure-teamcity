@@ -1,4 +1,5 @@
 plugins {
+    id("allure.common-configuration")
     id("io.github.rodm.teamcity-server") version "1.5"
     id("io.github.rodm.teamcity-environments") version "1.5"
 }

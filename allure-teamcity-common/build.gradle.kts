@@ -1,5 +1,5 @@
 plugins {
-    id("java-library")
+    id("allure.common-configuration")
     id("io.github.rodm.teamcity-common") version "1.5"
 }
 

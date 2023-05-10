@@ -36,11 +36,6 @@ plugins {
     id("net.researchgate.release") version "3.0.2"
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-
 description = "Allure Teamcity"
 group = "io.qameta.allure"
 
@@ -49,12 +44,6 @@ configurations.all {
         when (requested.module.toString()) {
             "xml-apis:xml-apis" -> useVersion("1.4.01")
         }
-    }
-}
-
-allprojects {
-    tasks.withType<JavaCompile>().configureEach {
-        options.encoding = "UTF-8"
     }
 }
 
@@ -109,19 +98,6 @@ configure(subprojects) {
 
             dependency("org.zeroturnaround:zt-zip:1.15")
 
-        }
-    }
-
-    tasks.compileTestJava {
-        options.compilerArgs.add("-parameters")
-    }
-
-    tasks.jar {
-        manifest {
-            attributes(mapOf(
-                "Implementation-Title" to project.name,
-                "Implementation-Version" to project.version
-            ))
         }
     }
 
@@ -181,18 +157,5 @@ configure(subprojects) {
         }
 
         encoding("UTF-8")
-    }
-
-    java {
-        withJavadocJar()
-        withSourcesJar()
-    }
-
-    tasks.withType<Javadoc>().configureEach {
-        (options as StandardJavadocDocletOptions).addStringOption("Xdoclint:none", "-quiet")
-    }
-
-    tasks.withType<GenerateModuleMetadata>().configureEach {
-        enabled = false
     }
 }

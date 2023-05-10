@@ -1,4 +1,5 @@
 plugins {
+    id("allure.common-configuration")
     id("io.github.rodm.teamcity-agent") version "1.5"
 }
 description = "allure-teamcity-plugin-agent"
