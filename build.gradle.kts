@@ -31,7 +31,6 @@ plugins {
     id("com.jfrog.bintray") version "1.8.5"
     id("com.gorylenko.gradle-git-properties") version "2.4.1"
     id("io.spring.dependency-management") version "1.1.0"
-    id("ru.vyarus.quality") version "4.7.0"
     id("org.owasp.dependencycheck") version "7.4.4"
     id("net.researchgate.release") version "3.0.2"
 }
@@ -58,9 +57,7 @@ tasks.afterReleaseBuild {
 
 configure(subprojects) {
 
-    apply(plugin = "java")
     apply(plugin = "maven-publish")
-    apply(plugin = "ru.vyarus.quality")
     apply(plugin = "com.diffplug.spotless")
     apply(plugin = "io.spring.dependency-management")
 
@@ -98,35 +95,6 @@ configure(subprojects) {
 
             dependency("org.zeroturnaround:zt-zip:1.15")
 
-        }
-    }
-
-    quality {
-        configDir = "$gradleScriptDir/quality-configs"
-        excludeSources = fileTree("build/generated-sources")
-        exclude("**/*.json")
-        checkstyleVersion = "8.36.1"
-        pmdVersion = "6.28.0"
-        spotbugsVersion = "4.1.2"
-        codenarcVersion = "1.6"
-        spotbugs = true
-        codenarc = true
-        pmd = true
-        checkstyle = true
-        htmlReports = false
-
-        afterEvaluate {
-            val spotbugs = configurations.findByName("spotbugs")
-            if (spotbugs != null) {
-                dependencies {
-                    spotbugs("org.slf4j:slf4j-simple")
-                    spotbugs("com.github.spotbugs:spotbugs:4.7.3")
-                }
-            }
-
-            tasks.withType(Checkstyle::class).configureEach {
-                configDirectory.set(file("$gradleScriptDir/quality-configs/checkstyle"))
-            }
         }
     }
 
