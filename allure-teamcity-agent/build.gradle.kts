@@ -6,7 +6,6 @@ plugins {
 description = "allure-teamcity-plugin-agent"
 
 teamcity {
-    version = rootProject.extra["teamcityVersion"] as String
     agent {
         descriptor {
             pluginDeployment {

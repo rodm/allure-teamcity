@@ -12,7 +12,6 @@ val teamcityFullDir = teamcityDir + "/TeamCity-" + teamcityVersion
 
 
 teamcity {
-    version = rootProject.extra["teamcityVersion"] as String
     server {
         descriptor {
             name = rootProject.name
