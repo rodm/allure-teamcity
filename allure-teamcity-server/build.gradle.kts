@@ -31,8 +31,8 @@ teamcity {
     }
 
     environments {
-        create("Teamcity20202") {
-            version = "2020.2"
+        create("Teamcity2022.04") {
+            version = "2022.04"
             homeDir = "$teamcityDir/TeamCity-$version"
             dataDir = "$teamcityDir/data/$version"
             serverOptions = rootProject.extra["serverOpts"] as String
