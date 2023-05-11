@@ -1,8 +1,8 @@
+
 plugins {
-    id("allure.common-configuration")
-    id("allure.quality-configuration")
-    id("io.github.rodm.teamcity-agent") version "1.5"
+    id ("teamcity.agent-plugin")
 }
+
 description = "allure-teamcity-plugin-agent"
 
 teamcity {
