@@ -7,17 +7,13 @@ description = "allure-teamcity-plugin-agent"
 
 teamcity {
     agent {
+        archiveName = project.name
         descriptor {
             pluginDeployment {
                 useSeparateClassloader = true
             }
         }
     }
-}
-
-tasks.agentPlugin{
-    archiveBaseName.set(name)
-    archiveVersion.set(null as String?) //teamcity plugin file name should be without version suffix
 }
 
 dependencies {
@@ -37,6 +33,4 @@ dependencies {
 
     provided("com.intellij:openapi")
     provided("org.jetbrains.teamcity.internal:agent")
-
 }
-

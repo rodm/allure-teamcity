@@ -10,9 +10,9 @@ val teamcityVersion = (rootProject.extra["teamcityVersion"] as String)
 val teamcityDir = (rootProject.extra["teamcityDir"] as String)
 val teamcityFullDir = teamcityDir + "/TeamCity-" + teamcityVersion
 
-
 teamcity {
     server {
+        archiveName = project.parent?.name
         descriptor {
             name = rootProject.name
             displayName = "Allure Report"
@@ -46,17 +46,9 @@ teamcity {
             serverOptions = rootProject.extra["serverOpts"] as String
         }
     }
-
 }
-
-tasks.serverPlugin{
-    archiveBaseName.set(project.parent?.name)
-    archiveVersion.set(null as String?) //teamcity plugin file name should be without version suffix
-}
-//configurations.archives.artifacts.removeAll { it.archiveTask.is jar }
 
 dependencies {
-
     annotationProcessor("org.projectlombok:lombok")
     compileOnly("org.projectlombok:lombok")
 
