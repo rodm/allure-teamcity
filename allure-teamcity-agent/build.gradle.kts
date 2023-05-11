@@ -21,16 +21,11 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
 
     implementation(project(":allure-teamcity-common"))
-
     implementation("com.fasterxml.jackson.core:jackson-databind")
-
     implementation("commons-io:commons-io")
     implementation("commons-logging:commons-logging")
-
     implementation("org.apache.commons:commons-compress")
     implementation("org.apache.commons:commons-lang3")
-    implementation("org.apache.httpcomponents.client5:httpclient5")
 
-    provided("com.intellij:openapi")
     provided("org.jetbrains.teamcity.internal:agent")
 }

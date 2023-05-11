@@ -33,12 +33,6 @@ teamcity {
     }
 
     environments {
-        create("Teamcity2017") {
-            version = "2017.1.5"
-            homeDir = "$teamcityDir/TeamCity-$version"
-            dataDir = "$teamcityDir/data/$version"
-            serverOptions = rootProject.extra["serverOpts"] as String
-        }
         create("Teamcity20202") {
             version = "2020.2"
             homeDir = "$teamcityDir/TeamCity-$version"
@@ -53,14 +47,12 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
 
     agent(project(path = ":allure-teamcity-agent", configuration = "plugin"))
-    implementation(project(":allure-teamcity-common"))
 
+    implementation(project(":allure-teamcity-common"))
     implementation("com.fasterxml.jackson.core:jackson-databind")
     implementation("commons-io:commons-io")
     implementation("org.apache.commons:commons-lang3")
 
-    provided("javax.servlet:jstl")
     provided("org.jetbrains.teamcity.internal:server")
-
     provided(files("$teamcityFullDir/webapps/ROOT/WEB-INF/lib/server-tools.jar"))
 }

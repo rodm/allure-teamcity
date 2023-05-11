@@ -64,21 +64,11 @@ configure(subprojects) {
             mavenBom("org.junit:junit-bom:5.9.2")
         }
         dependencies {
-
-            dependency("com.intellij:openapi:7.0.3")
-            dependency("com.github.spotbugs:spotbugs-annotations:4.7.3")
-
             dependency("commons-logging:commons-logging:1.2")
-
-            dependency("javax.servlet:jstl:1.1.2")
-
             dependency("org.apache.commons:commons-compress:1.21")
             dependency("org.apache.commons:commons-lang3:3.12.0")
             dependency("commons-io:commons-io:2.11.0")
-            dependency("org.apache.httpcomponents.client5:httpclient5:5.2.1")
-            dependency("org.apache.maven:maven-artifact:3.6.3")
 
-            dependency("org.jetbrains.teamcity:agent-api:$teamcityVersion")
             dependency("org.jetbrains.teamcity.internal:agent:$teamcityVersion")
             dependency("org.jetbrains.teamcity.internal:server:$teamcityVersion")
 
@@ -89,8 +79,6 @@ configure(subprojects) {
                 entry("slf4j-nop")
                 entry("slf4j-simple")
             }
-
-            dependency("org.zeroturnaround:zt-zip:1.15")
         }
     }
 }
