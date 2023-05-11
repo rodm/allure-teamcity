@@ -1,5 +1,4 @@
 import net.researchgate.release.ReleaseExtension
-import java.nio.charset.StandardCharsets.UTF_8
 
 val linkHomepage by extra("https://qameta.io/allure")
 val linkCi by extra("https://ci.qameta.io/job/allure-teamcity")
@@ -27,7 +26,6 @@ plugins {
     java
     signing
     `java-library`
-    id("com.diffplug.spotless") version "6.13.0"
     id("com.jfrog.bintray") version "1.8.5"
     id("com.gorylenko.gradle-git-properties") version "2.4.1"
     id("io.spring.dependency-management") version "1.1.0"
@@ -58,7 +56,6 @@ tasks.afterReleaseBuild {
 configure(subprojects) {
 
     apply(plugin = "maven-publish")
-    apply(plugin = "com.diffplug.spotless")
     apply(plugin = "io.spring.dependency-management")
 
     dependencyManagement {
@@ -94,36 +91,6 @@ configure(subprojects) {
             }
 
             dependency("org.zeroturnaround:zt-zip:1.15")
-
         }
-    }
-
-    spotless {
-        java {
-            target("src/**/*.java")
-            removeUnusedImports()
-            importOrder("", "jakarta", "javax", "java", "\\#")
-            licenseHeader(file("$spotlessDtr/allure.java.license").readText(UTF_8))
-            endWithNewline()
-            replaceRegex("one blank line after package line", "(package .+;)\n+import", "$1\n\nimport")
-            replaceRegex("one blank line after import lists", "(import .+;\n\n)\n+", "$1")
-            replaceRegex("no blank line between jakarta & javax", "(import jakarta.+;\n)\n+(import javax.+;\n)", "$1$2")
-            replaceRegex("no blank line between javax & java", "(import javax.+;\n)\n+(import java.+;\n)", "$1$2")
-            replaceRegex("no blank line between jakarta & java", "(import jakarta.+;\n)\n+(import java.+;\n)", "$1$2")
-        }
-        format("misc") {
-            target(
-                "*.gradle",
-                "*.gitignore",
-                "README.md",
-                "CONTRIBUTING.md",
-                "config/**/*.xml",
-                "src/**/*.xml"
-            )
-            trimTrailingWhitespace()
-            endWithNewline()
-        }
-
-        encoding("UTF-8")
     }
 }
