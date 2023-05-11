@@ -6,9 +6,7 @@ plugins {
 
 description = "allure-teamcity-plugin-server"
 
-val teamcityVersion = (rootProject.extra["teamcityVersion"] as String)
 val teamcityDir = (rootProject.extra["teamcityDir"] as String)
-val teamcityFullDir = teamcityDir + "/TeamCity-" + teamcityVersion
 
 teamcity {
     server {
@@ -54,5 +52,5 @@ dependencies {
     implementation("org.apache.commons:commons-lang3")
 
     provided("org.jetbrains.teamcity.internal:server")
-    provided(files("$teamcityFullDir/webapps/ROOT/WEB-INF/lib/server-tools.jar"))
+    provided("org.jetbrains.teamcity.internal:server-tools")
 }

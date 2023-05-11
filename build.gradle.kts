@@ -11,7 +11,7 @@ val gradleScriptDir by extra("$root/gradle")
 val qualityConfigsDir by extra("$gradleScriptDir/quality-configs")
 val spotlessDtr by extra("$qualityConfigsDir/spotless")
 
-val teamcityVersion by extra("2020.2")
+val teamcityVersion by extra("2022.04")
 val teamcityDir by extra("$root/.teamcity")
 val serverOpts by extra("-DTC.res.disableAll=true " +
         "-Dteamcity.development.mode=true " +
@@ -71,6 +71,7 @@ configure(subprojects) {
 
             dependency("org.jetbrains.teamcity.internal:agent:$teamcityVersion")
             dependency("org.jetbrains.teamcity.internal:server:$teamcityVersion")
+            dependency("org.jetbrains.teamcity.internal:server-tools:$teamcityVersion")
 
             dependency("org.projectlombok:lombok:1.18.24")
 
