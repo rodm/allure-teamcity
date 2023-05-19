@@ -27,7 +27,7 @@ quality {
         val spotbugs = configurations.findByName("spotbugs")
         if (spotbugs != null) {
             dependencies {
-                spotbugs("org.slf4j:slf4j-simple")
+                spotbugs("org.slf4j:slf4j-simple:2.0.3")
                 spotbugs("com.github.spotbugs:spotbugs:4.7.3")
             }
         }

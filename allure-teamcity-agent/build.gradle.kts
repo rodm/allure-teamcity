@@ -17,15 +17,15 @@ teamcity {
 }
 
 dependencies {
-    annotationProcessor("org.projectlombok:lombok")
-    compileOnly("org.projectlombok:lombok")
+    annotationProcessor (libs.lombok)
+    compileOnly (libs.lombok)
 
-    implementation(project(":allure-teamcity-common"))
-    implementation("com.fasterxml.jackson.core:jackson-databind")
-    implementation("commons-io:commons-io")
-    implementation("commons-logging:commons-logging")
-    implementation("org.apache.commons:commons-compress")
-    implementation("org.apache.commons:commons-lang3")
+    implementation (project(":allure-teamcity-common"))
+    implementation (libs.jackson.databind)
+    implementation (libs.commons.io)
+    implementation (libs.commons.logging)
+    implementation (libs.commons.compress)
+    implementation (libs.commons.lang3)
 
-    provided("org.jetbrains.teamcity.internal:agent")
+    provided ("org.jetbrains.teamcity.internal:agent:${teamcity.version}")
 }

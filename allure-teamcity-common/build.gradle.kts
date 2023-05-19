@@ -6,7 +6,7 @@ plugins {
 description = "allure-teamcity-plugin-common"
 
 dependencies {
-    annotationProcessor("org.projectlombok:lombok")
-    compileOnly("org.projectlombok:lombok")
-    implementation("com.fasterxml.jackson.core:jackson-databind")
+    annotationProcessor (libs.lombok)
+    compileOnly (libs.lombok)
+    implementation (libs.jackson.databind)
 }

@@ -23,7 +23,6 @@ tasks.wrapper {
 }
 
 plugins {
-    id("io.spring.dependency-management") version "1.1.0"
     id("org.owasp.dependencycheck") version "7.4.4"
     id("net.researchgate.release") version "3.0.2"
 }
@@ -45,36 +44,4 @@ configure<ReleaseExtension> {
 
 tasks.afterReleaseBuild {
     dependsOn(":allure-teamcity-server:publishPlugin")
-}
-
-
-configure(subprojects) {
-
-    apply(plugin = "maven-publish")
-    apply(plugin = "io.spring.dependency-management")
-
-    dependencyManagement {
-        imports {
-            mavenBom("com.fasterxml.jackson:jackson-bom:2.14.1")
-            mavenBom("org.junit:junit-bom:5.9.2")
-        }
-        dependencies {
-            dependency("commons-logging:commons-logging:1.2")
-            dependency("org.apache.commons:commons-compress:1.21")
-            dependency("org.apache.commons:commons-lang3:3.12.0")
-            dependency("commons-io:commons-io:2.11.0")
-
-            dependency("org.jetbrains.teamcity.internal:agent:$teamcityVersion")
-            dependency("org.jetbrains.teamcity.internal:server:$teamcityVersion")
-            dependency("org.jetbrains.teamcity.internal:server-tools:$teamcityVersion")
-
-            dependency("org.projectlombok:lombok:1.18.24")
-
-            dependencySet("org.slf4j:2.0.3") {
-                entry("slf4j-api")
-                entry("slf4j-nop")
-                entry("slf4j-simple")
-            }
-        }
-    }
 }

@@ -41,16 +41,16 @@ teamcity {
 }
 
 dependencies {
-    annotationProcessor("org.projectlombok:lombok")
-    compileOnly("org.projectlombok:lombok")
+    annotationProcessor (libs.lombok)
+    compileOnly (libs.lombok)
 
-    agent(project(path = ":allure-teamcity-agent", configuration = "plugin"))
+    agent (project(path = ":allure-teamcity-agent", configuration = "plugin"))
 
-    implementation(project(":allure-teamcity-common"))
-    implementation("com.fasterxml.jackson.core:jackson-databind")
-    implementation("commons-io:commons-io")
-    implementation("org.apache.commons:commons-lang3")
+    implementation (project(":allure-teamcity-common"))
+    implementation (libs.jackson.databind)
+    implementation (libs.commons.io)
+    implementation (libs.commons.lang3)
 
-    provided("org.jetbrains.teamcity.internal:server")
-    provided("org.jetbrains.teamcity.internal:server-tools")
+    provided ("org.jetbrains.teamcity.internal:server:${teamcity.version}")
+    provided ("org.jetbrains.teamcity.internal:server-tools:${teamcity.version}")
 }
