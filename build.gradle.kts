@@ -23,11 +23,6 @@ tasks.wrapper {
 }
 
 plugins {
-    java
-    signing
-    `java-library`
-    id("com.jfrog.bintray") version "1.8.5"
-    id("com.gorylenko.gradle-git-properties") version "2.4.1"
     id("io.spring.dependency-management") version "1.1.0"
     id("org.owasp.dependencycheck") version "7.4.4"
     id("net.researchgate.release") version "3.0.2"
