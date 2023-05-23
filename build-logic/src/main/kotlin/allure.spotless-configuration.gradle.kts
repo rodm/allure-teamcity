@@ -5,17 +5,16 @@ plugins {
     id ("com.diffplug.spotless")
 }
 
-val root = rootProject.projectDir
-val gradleScriptDir by extra("$root/gradle")
+val gradleScriptDir by extra("$rootDir/gradle")
 val qualityConfigsDir by extra("$gradleScriptDir/quality-configs")
-val spotlessDtr by extra("$qualityConfigsDir/spotless")
+val spotlessDir by extra("$qualityConfigsDir/spotless")
 
 spotless {
     java {
         target("src/**/*.java")
         removeUnusedImports()
         importOrder("", "jakarta", "javax", "java", "\\#")
-        licenseHeader(file("$spotlessDtr/allure.java.license").readText(UTF_8))
+        licenseHeader(file("$spotlessDir/allure.java.license").readText(UTF_8))
         endWithNewline()
         replaceRegex("one blank line after package line", "(package .+;)\n+import", "$1\n\nimport")
         replaceRegex("one blank line after import lists", "(import .+;\n\n)\n+", "$1")

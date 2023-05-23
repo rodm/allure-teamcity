@@ -6,11 +6,6 @@ val linkScmUrl by extra("https://github.com/allure-framework/allure-teamcity")
 val linkScmConnection by extra("scm:git:git://github.com/allure-framework/allure-teamcity.git")
 val linkScmDevConnection by extra("scm:git:ssh://git@github.com:allure-framework/allure-teamcity.git")
 
-val root = rootProject.projectDir
-val gradleScriptDir by extra("$root/gradle")
-val qualityConfigsDir by extra("$gradleScriptDir/quality-configs")
-val spotlessDtr by extra("$qualityConfigsDir/spotless")
-
 tasks.wrapper {
     gradleVersion = "7.5.1"
 }

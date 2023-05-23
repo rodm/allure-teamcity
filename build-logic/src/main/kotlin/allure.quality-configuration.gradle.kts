@@ -6,8 +6,7 @@ plugins {
     id ("ru.vyarus.quality")
 }
 
-val root = rootProject.projectDir
-val gradleScriptDir by extra("$root/gradle")
+val gradleScriptDir by extra("$rootDir/gradle")
 
 quality {
     configDir = "$gradleScriptDir/quality-configs"
