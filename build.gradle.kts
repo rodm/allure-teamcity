@@ -11,12 +11,6 @@ val gradleScriptDir by extra("$root/gradle")
 val qualityConfigsDir by extra("$gradleScriptDir/quality-configs")
 val spotlessDtr by extra("$qualityConfigsDir/spotless")
 
-val teamcityDir by extra("$root/.teamcity")
-val serverOpts by extra("-DTC.res.disableAll=true " +
-        "-Dteamcity.development.mode=true " +
-        "-Dteamcity.development.shadowCopyClasses=true " +
-        "-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=50055")
-
 tasks.wrapper {
     gradleVersion = "7.5.1"
 }

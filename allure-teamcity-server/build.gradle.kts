@@ -6,7 +6,8 @@ plugins {
 
 description = "allure-teamcity-plugin-server"
 
-val teamcityDir = (rootProject.extra["teamcityDir"] as String)
+val teamcityDir = "${rootDir}/.teamcity"
+val serverOpts = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=50055"
 
 teamcity {
     server {
@@ -35,7 +36,7 @@ teamcity {
             version = "2022.04"
             homeDir = "$teamcityDir/TeamCity-$version"
             dataDir = "$teamcityDir/data/$version"
-            serverOptions = rootProject.extra["serverOpts"] as String
+            serverOptions (serverOpts)
         }
     }
 }
