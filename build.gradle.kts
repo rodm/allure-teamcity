@@ -11,7 +11,6 @@ val gradleScriptDir by extra("$root/gradle")
 val qualityConfigsDir by extra("$gradleScriptDir/quality-configs")
 val spotlessDtr by extra("$qualityConfigsDir/spotless")
 
-val teamcityVersion by extra("2022.04")
 val teamcityDir by extra("$root/.teamcity")
 val serverOpts by extra("-DTC.res.disableAll=true " +
         "-Dteamcity.development.mode=true " +

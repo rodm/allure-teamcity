@@ -4,5 +4,5 @@ plugins {
 }
 
 teamcity {
-    version = rootProject.extra["teamcityVersion"] as String
+    version = (project.findProperty("teamcityVersion") ?: "2022.04") as String
 }
